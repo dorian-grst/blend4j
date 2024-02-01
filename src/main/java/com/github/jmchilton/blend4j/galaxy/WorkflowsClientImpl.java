@@ -70,7 +70,8 @@ class WorkflowsClientImpl extends Client implements WorkflowsClient {
 	}
 
 	public ClientResponse runWorkflowResponse(WorkflowInputs workflowInputs) {
-		return super.create(workflowInputs);
+		return super.create(getInvocationWebResource(workflowInputs.getWorkflowId()), workflowInputs, true);
+//  	return super.create(workflowInputs);
 	}
 
 	public WorkflowOutputs runWorkflow(final WorkflowInputs workflowInputs) {
