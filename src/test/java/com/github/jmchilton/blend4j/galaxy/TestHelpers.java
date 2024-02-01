@@ -82,6 +82,7 @@ class TestHelpers {
   static void waitForHistory(final HistoriesClient client, final String historyId) throws InterruptedException {
     HistoryDetails details = null;
     while(true) {
+      Thread.sleep(2000L);
       details = client.showHistory(historyId);
       if(details.isReady()) {
         break;
@@ -100,7 +101,6 @@ class TestHelpers {
       final String message = "History no longer running, but not in 'ok' state. State is - " + state;
       throw new RuntimeException(message);
     }
-    Thread.sleep(200L);
   }
   
   static List<String> populateTestDatasets(final GalaxyInstance instance, final String historyId, final int count) throws InterruptedException {
