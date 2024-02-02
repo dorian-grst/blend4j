@@ -1,6 +1,8 @@
 target
 test-output
-/.classpath
+.classpath
+.project
+.settings
 
 ### IntelliJ IDEA ###
 .idea
