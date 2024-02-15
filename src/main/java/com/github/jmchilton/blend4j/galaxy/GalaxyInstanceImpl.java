@@ -48,6 +48,10 @@ class GalaxyInstanceImpl implements GalaxyInstance {
   public SearchClient getSearchClient() {
     return new SearchClientImpl(this);
   }
+  
+  public WebResource getRootWebResource() {
+    return webResourceFactory.getRoot();
+  }
 
   public WebResource getWebResource() {
     return webResourceFactory.get();
@@ -66,5 +70,10 @@ class GalaxyInstanceImpl implements GalaxyInstance {
    */
   public JobsClient getJobsClient() {
 	  return new JobsClientImpl(this);
+  }
+
+  @Override
+  public HistoryClient getHistoryClient() {
+    return new HistoryClientImpl(this);
   }
 }

@@ -9,11 +9,15 @@ class Client extends BaseClient {
   private final GalaxyInstanceImpl galaxyInstance;
 
   Client(final GalaxyInstanceImpl galaxyInstance, final String module) {
-    super(galaxyInstance.getWebResource(), module);
-    this.galaxyInstance = galaxyInstance;
+    this(galaxyInstance, module, false);
   }
 
-  @Override
+  Client(final GalaxyInstanceImpl galaxyInstance, String module, boolean fOmitApiPath) {
+    super(fOmitApiPath ? galaxyInstance.getRootWebResource() : galaxyInstance.getWebResource(), module);
+	this.galaxyInstance = galaxyInstance;
+}
+
+@Override
   protected ResponseException buildResponseException(final ClientResponse clientResponse) {
     final ResponseException exception = new GalaxyResponseException(clientResponse);
     return exception;

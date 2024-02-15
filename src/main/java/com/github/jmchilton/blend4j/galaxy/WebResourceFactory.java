@@ -9,6 +9,8 @@ public interface WebResourceFactory {
    */
   public WebResource get();
   
+  public WebResource getRoot();
+  
   @Deprecated
   public String getGalaxyUrl();
   

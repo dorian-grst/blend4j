@@ -4,6 +4,8 @@ import com.sun.jersey.api.client.WebResource;
 
 public interface GalaxyInstance {
   HistoriesClient getHistoriesClient();
+  
+  HistoryClient getHistoryClient();
 
   LibrariesClient getLibrariesClient();
 
@@ -24,6 +26,8 @@ public interface GalaxyInstance {
   SearchClient getSearchClient();
   
   WebResource getWebResource();
+  
+  WebResource getRootWebResource();
 
   String getGalaxyUrl();
   

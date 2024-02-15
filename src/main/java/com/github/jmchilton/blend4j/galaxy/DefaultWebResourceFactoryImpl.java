@@ -42,6 +42,16 @@ public class DefaultWebResourceFactoryImpl implements WebResourceFactory {
     return resource;
   }
   
+  public WebResource getRoot() {
+    final String apiKey = getApiKey();
+    final com.sun.jersey.api.client.Client client = getJerseyClient();
+    WebResource resource = client.resource(getUrl());
+    if(apiKey != null) {
+      resource = resource.queryParam("key", apiKey);
+    }
+    return resource;
+  }
+  
   public String getUrl() {
     return url;
   }
